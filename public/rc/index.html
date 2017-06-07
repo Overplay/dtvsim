@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rcApp">
+<head>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+
+    <script src="app/rc.module.js"></script>
+    <meta charset="UTF-8">
+    <title>DTV Simulator Remote Control</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+
+        .btn {
+            width: 80%;
+            padding: 30px;
+            background-color: #5F82D9;
+            margin: 30px auto 30px auto;
+            display: block;
+            color: white;
+            font-size: 40px;
+        }
+
+        .status {
+            width: 80%;
+            padding: 30px;
+            background-color: #272e34;
+            margin: 10px auto 5px auto;
+            display: block;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body ng-controller="rcController">
+<div class="status">
+    <h1>Now Showing</h1>
+    <h1>{{ nowshowing }}</h1>
+</div>
+<button class="btn" ng-click="upClicked()">CHANNEL UP</button>
+<button class="btn" ng-click="downClicked()">CHANNEL DOWN</button>
+</body>
+</html>

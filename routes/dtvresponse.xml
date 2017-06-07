@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+    <device>
+        <deviceType>urn:schemas-upnp-org:device:MediaRenderer:1</deviceType>
+        <friendlyName>DIRECTV Mediashare Renderer</friendlyName>
+        <manufacturer>DIRECTV</manufacturer>
+        <manufacturerURL>http://www.directv.com</manufacturerURL>
+        <modelDescription>DIRECTV Plus HD DVR</modelDescription>
+        <modelName>MediaRenderer</modelName>
+        <modelNumber>1.0</modelNumber>
+        <UDN>uuid:29bbe0e1-1a6e-47f6-8f8d-0003784ebf0c</UDN>
+        <serviceList>
+            <service>
+                <serviceType>urn:schemas-upnp-org:service:RenderingControl:1</serviceType>
+                <serviceId>urn:upnp-org:serviceId:RenderingControl</serviceId>
+                <controlURL>/upnp/control/2/RenderingControl1</controlURL>
+                <eventSubURL>/upnp/event/2/RenderingControl1</eventSubURL>
+                <SCPDURL>http://10.1.10.118:49152/2/RenderingControlSCPD.xml</SCPDURL>
+            </service>
+            <service>
+                <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+                <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+                <controlURL>/upnp/control/2/ConnectionManager1</controlURL>
+                <eventSubURL>/upnp/event/2/ConnectionManager1</eventSubURL>
+                <SCPDURL>http://10.1.10.118:49152/2/ConnectionManagerSCPD.xml</SCPDURL>
+            </service>
+        </serviceList>
+        <intel_nmpr:X_INTEL_NMPR
+                xmlns:intel_nmpr="udn:schemas-intel-com:device-1-0">2.1
+        </intel_nmpr:X_INTEL_NMPR>
+        <dlna:X_DLNADOC
+                xmlns:dlna="udn:schemas-dlna-org:device-1-0">DMP 1.00
+        </dlna:X_DLNADOC>
+        <directv-hmc></directv-hmc>
+    </device>
+</root>

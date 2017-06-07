@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dtvSimApp">
+<head>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="app/dtvsim.module.js"></script>
+    <meta charset="UTF-8">
+    <title>DTV Simulator</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+        .tv {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body ng-controller="screenController">
+<video class="tv" src="{{ vidsrc }}" autoplay></video>
+
+</body>
+</html>

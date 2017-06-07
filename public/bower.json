@@ -1,0 +1,26 @@
+{
+  "name": "public",
+  "authors": [
+    "Mitch Kahn <mitch@ourglass.io>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-ui-router": "*",
+    "angular-bootstrap": "*",
+    "angular-toastr": "*",
+    "lodash": "*",
+    "moment": "*"
+  }
+}
