@@ -13,7 +13,7 @@ var channelInfo = [
     { callsign: "ESPNHD", major: 206, minor: 65535, programId: 36417953, stationId: 2220255, title: "Warriors v. Cavs", file:  'vids/bball.mp4'},
     { callsign: "CNNHD", major: 202, minor: 65535, programId: 36417952, stationId: 2220225, title: "News & Stuff", file: 'vids/bball.mp4' },
     { callsign: "BEIN", major: 620, minor: 65535, programId: 3617953, stationId: 220255, title: "Man United", file: 'vids/soccer.mp4' },
-    { callsign: "FOX", major: 2, minor: 65535, programId: 3647953, stationId: 20255, title: "FOXy Show", file: 'vids/bball.mp4' }
+    { callsign: "FOX", major: 2, minor: 65535, programId: 3647953, stationId: 20255, title: "Stranger Things", file: 'vids/sthingsclip.mp4' }
 ];
 
 const _ = require('lodash');
