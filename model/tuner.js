@@ -6,8 +6,14 @@ const MOCK_GUIDE = require('./mockguide.json');
 
 var channelIdx = 1;
 
+var _currentChannelInfo;
+
 function getChannelInfo() {
-    return channelInfo[ channelIdx ];
+    return _currentChannelInfo;
+}
+
+function setStockChannelInfo(){
+    _currentChannelInfo = channelInfo[ channelIdx ];
 }
 
 var channelInfo = [
@@ -25,12 +31,14 @@ module.exports = {
 
     channelUp: function(){
         channelIdx = ( channelIdx + 1 ) % channelInfo.length;
+        setStockChannelInfo();
         require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', getChannelInfo() );
         return getChannelInfo();
     },
 
     channelDown: function(){
         channelIdx = (channelIdx - 1) < 0 ? channelInfo.length - 1 : channelIdx - 1;
+        setStockChannelInfo();
         require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', getChannelInfo() );
         return getChannelInfo();
     },
@@ -40,6 +48,7 @@ module.exports = {
         const index = _.findIndex(channelInfo, { major: channel });
         if (index>-1){
             channelIdx = index;
+            setStockChannelInfo();
             require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', getChannelInfo() );
             return getChannelInfo();
         } else {
@@ -57,6 +66,7 @@ module.exports = {
                 }
             }
 
+            _currentChannelInfo = rval;
             require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', rval );
             return rval;
 

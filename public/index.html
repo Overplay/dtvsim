@@ -78,12 +78,25 @@
             font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif
         }
 
+        .ping {
+            position: absolute;
+            color: transparent;
+            font-size: 8px;
+            width: 40px;
+            height: 40px;
+            background-color: #38D63B;
+            border-radius: 50%;
+            top: 40px;
+            left: 50px;
+        }
+
     </style>
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
 </head>
 <body ng-controller="screenController">
 <video class="tv" src="{{ vidsrc }}" autoplay loop></video>
 <div class="cinfo">{{callsign}}</div>
+<div class="ping" ng-show="showPing">POLL</div>
 <button ng-click="chanUp()" class="btn up">Up</button>
 <button ng-click="chanDn()" class="btn dn">Dn</button>
 </body>

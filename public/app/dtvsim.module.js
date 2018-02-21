@@ -8,7 +8,7 @@ app.run( function () {
     console.log( "DirecTV TV-side sim running. Enjoy the show." );
 } );
 
-app.controller( 'screenController', function ( $scope, $log, $http, toastr ) {
+app.controller( 'screenController', function ( $scope, $log, $http, toastr, $timeout ) {
 
     $log.debug( "screenController starting up." );
 
@@ -26,6 +26,16 @@ app.controller( 'screenController', function ( $scope, $log, $http, toastr ) {
         socket.on( 'join', function ( data ) {
             console.log("Joined socket.io roon");
         } );
+
+        socket.on('box_polled', function(){
+            console.log("BOX POLLED");
+            $scope.$apply( function(){
+                $scope.showPing = true;
+                $timeout(function(){
+                    $scope.showPing = false;
+                    }, 750 );
+            })
+        })
 
     } );
 

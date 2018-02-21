@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get( '/getTuned', function ( req, res, next ) {
+    require( '../app' ).io.to( 'channel-info' ).emit( 'box_polled', null );
     res.json( tuner.currentChannel() );
 } );
 
