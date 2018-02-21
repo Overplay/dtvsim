@@ -38,6 +38,7 @@ app.controller( 'screenController', function ( $scope, $log, $http, toastr ) {
 
     function changeChannel(cinfo){
         $scope.vidsrc = cinfo.file;
+        $scope.callsign = cinfo.callsign;
         toastr.success( cinfo.callsign);
     }
 

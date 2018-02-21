@@ -68,11 +68,21 @@
             left: 30px;
         }
 
+        .cinfo {
+            position: absolute;
+            top: 40px;
+            font-size: 20px;
+            color: white;
+            width: 100vw;
+            text-align: center;
+        }
+
     </style>
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
 </head>
 <body ng-controller="screenController">
 <video class="tv" src="{{ vidsrc }}" autoplay loop></video>
+<div class="cinfo">{{callsign}}</div>
 <button ng-click="chanUp()" class="btn up">Up</button>
 <button ng-click="chanDn()" class="btn dn">Dn</button>
 </body>

@@ -2,6 +2,7 @@
  * Created by mkahn on 6/6/17.
  */
 
+const MOCK_GUIDE = require('./mockguide.json');
 
 var channelIdx = 1;
 
@@ -41,9 +42,27 @@ module.exports = {
             channelIdx = index;
             require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', getChannelInfo() );
             return getChannelInfo();
+        } else {
+            const cinfo = _.find(MOCK_GUIDE, ["channel.channelNumber", channel]);
+            var rval;
+            if ( cinfo ) {
+                rval =  {
+                    callsign: cinfo.channel.callsign, major: cinfo.channel.channelNumber, minor: 65535,
+                    programId: 12345, stationId: cinfo.channel.stationId, title: "Some Programming"
+                };
+            } else {
+                rval = {
+                    callsign:  "WTF", major: channel, minor: 65535,
+                    programId: 12345, stationId: 67890, title: "No Such Channel, Homey"
+                }
+            }
+
+            require( '../app' ).io.to( 'channel-info' ).emit( 'channel-changed', rval );
+            return rval;
+
         }
 
-        return undefined;
+        //return undefined;
     }
 
 
