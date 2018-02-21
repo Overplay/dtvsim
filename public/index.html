@@ -7,6 +7,9 @@
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+    <link href="/bower_components/angular-toastr/dist/angular-toastr.css" type="text/css" rel="stylesheet"/>
 
     <script src="app/dtvsim.module.js"></script>
     <meta charset="UTF-8">
@@ -23,9 +26,54 @@
             height: 100vh;
             overflow: hidden;
         }
+
+        .btn {
+            background: #3498db;
+            background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+            background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+            background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+            background-image: -o-linear-gradient(top, #3498db, #2980b9);
+            background-image: linear-gradient(to bottom, #3498db, #2980b9);
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+            opacity: 0.1;
+        }
+
+        .btn:hover {
+            background: #3cb0fd;
+            background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+            text-decoration: none;
+            opacity: 1;
+        }
+
+        .up {
+            position: absolute;
+            bottom: 100px;
+            left: 30px;
+        }
+
+        .dn {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+        }
+
     </style>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
 </head>
 <body ng-controller="screenController">
 <video class="tv" src="{{ vidsrc }}" autoplay loop></video>
+<button ng-click="chanUp()" class="btn up">Up</button>
+<button ng-click="chanDn()" class="btn dn">Dn</button>
 </body>
 </html>

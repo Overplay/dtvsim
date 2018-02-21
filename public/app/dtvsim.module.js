@@ -2,13 +2,13 @@
  * Created by mkahn on 6/6/17.
  */
 
-var app = angular.module( 'dtvSimApp', [] );
+var app = angular.module( 'dtvSimApp', ['toastr'] );
 
 app.run( function () {
     console.log( "DirecTV TV-side sim running. Enjoy the show." );
 } );
 
-app.controller( 'screenController', function ( $scope, $log, $http ) {
+app.controller( 'screenController', function ( $scope, $log, $http, toastr ) {
 
     $log.debug( "screenController starting up." );
 
@@ -38,6 +38,17 @@ app.controller( 'screenController', function ( $scope, $log, $http ) {
 
     function changeChannel(cinfo){
         $scope.vidsrc = cinfo.file;
+        toastr.success( cinfo.callsign);
+    }
+
+    $scope.chanUp = function(){
+        $http.get('/tv/channelUp')
+            .then( function (d) { $log.debug("Channel up")});
+    }
+
+    $scope.chanDn = function () {
+        $http.get( '/tv/channelDown' )
+            .then( function ( d ) { $log.debug( "Channel dn" )} );
     }
 
 } );
